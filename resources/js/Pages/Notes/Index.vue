@@ -13,6 +13,7 @@
                         <div class="px-4 sm:px-0">
                             <h3 class="text-lg text-gray-900">Note-List</h3>
                             <p class="text-sm text-gray-600">Take a Register and Excute any Function (Read, Edit or Delete)</p>
+                            <Link :href="route('notes.create')"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-md mt-3">Create</button></Link>
                         </div>
                     </div>
                     <div class="md:col-span-2 mt-5 md:mt-0">
