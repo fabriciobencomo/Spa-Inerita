@@ -29,6 +29,9 @@
                                     <td class="px-4 py-2">
                                         <Link :href="route('notes.edit', note.id)">Edit</Link>
                                     </td>
+                                    <td class="px-4 py-2">
+                                        <a href="#" @click.prevent="destroy(note.id)">Delete </a>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -52,6 +55,15 @@
         },
         props: {
             notes: Array,
+        },
+        methods: {
+            destroy($id)
+            {
+                if(confirm("This Action is Irreversible. Are You Sure?")){
+                    this.$inertia.delete(this.route('notes.destroy', $id ))
+                }
+
+            }
         }
     })
 </script>

@@ -20830,6 +20830,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     notes: Array
+  },
+  methods: {
+    destroy: function destroy($id) {
+      if (confirm("This Action is Irreversible. Are You Sure?")) {
+        this.$inertia["delete"](this.route('notes.destroy', $id));
+      }
+    }
   }
 }));
 
@@ -24982,6 +24989,10 @@ var _hoisted_15 = {
 
 var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Edit");
 
+var _hoisted_17 = {
+  "class": "px-4 py-2"
+};
+var _hoisted_18 = ["onClick"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
@@ -25030,7 +25041,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
         }, 1032
         /* PROPS, DYNAMIC_SLOTS */
-        , ["href"])])]);
+        , ["href"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+          href: "#",
+          onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+            return _ctx.destroy(note.id);
+          }, ["prevent"])
+        }, "Delete ", 8
+        /* PROPS */
+        , _hoisted_18)])]);
       }), 256
       /* UNKEYED_FRAGMENT */
       ))])])])])])])];
