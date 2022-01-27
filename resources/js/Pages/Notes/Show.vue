@@ -11,25 +11,15 @@
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
                         <div class="px-4 sm:px-0">
-                            <h3 class="text-lg text-gray-900">Note-List</h3>
-                            <p class="text-sm text-gray-600">Take a Register and Excute any Function (Read, Edit or Delete)</p>
+                            <h3 class="text-lg text-gray-900">Details Note</h3>
+                            <p class="text-sm text-gray-600">{{note.excerpt}}></p>
                         </div>
                     </div>
                     <div class="md:col-span-2 mt-5 md:mt-0">
                         <div class="shadow bg-white md:rounded-md p-4">
-                            <table>
-                                <tr v-for="note in notes">
-                                    <td class="border px-4 py-2">
-                                        {{note.excerpt}}
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <Link :href="route('notes.show', note.id)">Read More</Link>
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <Link :href="route('notes.edit', note.id)">Edit</Link>
-                                    </td>
-                                </tr>
-                            </table>
+                            <p>{{note.content}}</p>
+                            <hr class="my-6">
+                            <Link :href="route('notes.index')">Back</Link>
                         </div>
                     </div>
                 </div>
@@ -42,7 +32,7 @@
     import { defineComponent } from 'vue'
     import AppLayout from '@/Layouts/AppLayout.vue'
     import Welcome from '@/Jetstream/Welcome.vue'
-    import { Head, Link } from '@inertiajs/inertia-vue3'
+    import { Link } from '@inertiajs/inertia-vue3'
 
     export default defineComponent({
         components: {
@@ -50,7 +40,7 @@
             Link
         },
         props: {
-            notes: Array,
+            note: Object,
         }
     })
 </script>
