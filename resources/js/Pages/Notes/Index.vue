@@ -1,9 +1,12 @@
 <template>
     <app-layout title="Dashboard">
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Notes
-            </h2>
+            <div class="flex justify-between">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    Notes
+                </h2>
+                <input type="text" class="form-input rounded-md shadow-sm" placeholder="Search..." v-model="q">
+            </div>
         </template>
 
         <div class="py-12">
@@ -55,6 +58,12 @@
         },
         props: {
             notes: Array,
+
+        },
+        data() {
+            return {
+                q: ''
+            }
         },
         methods: {
             destroy($id)
@@ -63,6 +72,11 @@
                     this.$inertia.delete(this.route('notes.destroy', $id ))
                 }
 
+            }
+        },
+        watch: {
+            q: function (value) {
+                this.$inertia.replace(this.route('notes.index', {q: value}))
             }
         }
     })
